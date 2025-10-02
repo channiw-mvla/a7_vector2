@@ -139,6 +139,19 @@ dsac/fast:
 .PHONY : dsac/fast
 
 #=============================================================================
+# Target rules for targets named dsamatrix
+
+# Build rule for target.
+dsamatrix: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 dsamatrix
+.PHONY : dsamatrix
+
+# fast build rule for target.
+dsamatrix/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dsamatrix.dir\build.make CMakeFiles/dsamatrix.dir/build
+.PHONY : dsamatrix/fast
+
+#=============================================================================
 # Target rules for targets named my_test
 
 # Build rule for target.
@@ -174,6 +187,30 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\dsac.dir\build.make CMakeFiles/dsac.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/matrix.obj: src/matrix.cpp.obj
+.PHONY : src/matrix.obj
+
+# target to build an object file
+src/matrix.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dsamatrix.dir\build.make CMakeFiles/dsamatrix.dir/src/matrix.cpp.obj
+.PHONY : src/matrix.cpp.obj
+
+src/matrix.i: src/matrix.cpp.i
+.PHONY : src/matrix.i
+
+# target to preprocess a source file
+src/matrix.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dsamatrix.dir\build.make CMakeFiles/dsamatrix.dir/src/matrix.cpp.i
+.PHONY : src/matrix.cpp.i
+
+src/matrix.s: src/matrix.cpp.s
+.PHONY : src/matrix.s
+
+# target to generate assembly for a file
+src/matrix.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dsamatrix.dir\build.make CMakeFiles/dsamatrix.dir/src/matrix.cpp.s
+.PHONY : src/matrix.cpp.s
 
 tests/test_vector_1.obj: tests/test_vector_1.cpp.obj
 .PHONY : tests/test_vector_1.obj
@@ -233,10 +270,14 @@ help:
 	@echo ... rebuild_cache
 	@echo ... test
 	@echo ... dsac
+	@echo ... dsamatrix
 	@echo ... my_test
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
+	@echo ... src/matrix.obj
+	@echo ... src/matrix.i
+	@echo ... src/matrix.s
 	@echo ... tests/test_vector_1.obj
 	@echo ... tests/test_vector_1.i
 	@echo ... tests/test_vector_1.s

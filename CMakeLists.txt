@@ -8,6 +8,7 @@ project(dsac)
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
 add_executable(dsac src/main.cpp)
+add_executable(dsamatrix src/matrix.cpp)
 
 add_executable(
     my_test 

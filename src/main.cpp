@@ -2,5 +2,6 @@
 
 int main() {
     dsa::Vector<int> v;
+    return 0;
 }
 
