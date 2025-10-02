@@ -378,8 +378,12 @@ public:
 
         // Copy assignment
         Vector& operator=(const Vector& other){
-            // nothing to be done if self-assignment
-            // else deallocate previous and clone
+            if(this != other){
+                delete[] data;
+                this->sz=other.sz;
+                this->cap=other.cap;
+                this->data=clone(other);
+            }
             return *this;
         }
 
@@ -390,8 +394,16 @@ public:
 
         // Move assignment
         Vector& operator=(Vector&& other){
-            // nothing to be done if self-assignment
-            // else deallocate previous and transfer
+            if(this != other){
+                delete[] data;
+                this->sz=other.sz;
+                this->cap=other.cap;
+                this->data=other.data;
+
+                other.sz=0;
+                other.cap=0;
+                other.data=nullptr;
+            }
             return *this;
         }
 
