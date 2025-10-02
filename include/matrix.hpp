@@ -45,7 +45,7 @@ public:
     // throw std::out_of_range("dimensions must match")
     // result(i, j) = (*this)(i, j) + other(i, j)
     Matrix operator+(Matrix& other) {
-        if( this->cols != other.cols || this->rows != other.cols)
+        if( this->cols != other.cols || this->rows != other.rows)
             throw std::out_of_range("dimensions must match");
         Matrix result(this->rows,this->cols);
         for (int i = 0; i < this->rows; i++)
