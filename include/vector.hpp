@@ -378,7 +378,7 @@ public:
 
         // Copy assignment
         Vector& operator=(const Vector& other){
-            if(this != other){
+            if(this != &other){
                 delete[] data;
                 this->sz=other.sz;
                 this->cap=other.cap;
@@ -394,7 +394,7 @@ public:
 
         // Move assignment
         Vector& operator=(Vector&& other){
-            if(this != other){
+            if(this != &other){
                 delete[] data;
                 this->sz=other.sz;
                 this->cap=other.cap;
