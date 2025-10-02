@@ -380,9 +380,7 @@ public:
         Vector& operator=(const Vector& other){
             if(this != &other){
                 delete[] data;
-                this->sz=other.sz;
-                this->cap=other.cap;
-                this->data=clone(other);
+                clone(other);
             }
             return *this;
         }
