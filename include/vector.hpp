@@ -199,7 +199,7 @@ public:
 
             // return address of this->vec->[this->ind];
             T* operator->() const { 
-                return this->vec[ind];
+                return &this->vec[ind];
             }
 
             //pre increment overloaded without param
