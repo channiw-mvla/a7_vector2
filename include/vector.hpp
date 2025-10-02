@@ -194,12 +194,12 @@ public:
 
             //return this->vec->[this->ind];
             T& operator*() const {
-                return vec[ind];
+                return (*vec)[ind];
             }
 
             // return address of this->vec->[this->ind];
             T* operator->() const { 
-                return &vec[ind];
+                return &(*vec)[ind];
             }
 
             //pre increment overloaded without param
