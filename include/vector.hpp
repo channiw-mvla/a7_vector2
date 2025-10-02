@@ -25,7 +25,7 @@ public:
 
     //elements stored
     int size() const {
-        return size;
+        return sz;
     }
     
     //return (sz == 0)
@@ -194,12 +194,12 @@ public:
 
             //return this->vec->[this->ind];
             T& operator*() const {
-                return this->vec[this->ind];
+                return (*this->vec)[this->ind];
             }
 
             // return address of this->vec->[this->ind];
             T* operator->() const { 
-                return this->vec[this->ind];
+                return (*this->vec)[this->ind];
             }
 
             //pre increment overloaded without param
@@ -239,7 +239,7 @@ public:
 
             //return !(*this == rhs)
             bool operator!=(iterator rhs) const{
-                return !(*this == rhs)
+                return !(*this == rhs);
             }
     };
 
@@ -349,7 +349,7 @@ public:
         //else: data=new T[cap]; copy [0..sz)
         void clone(const Vector& other){
             this->sz=other.sz; 
-            this->cap=other.cap
+            this->cap=other.cap;
             if (cap==0)
                 data = nullptr;
             else{

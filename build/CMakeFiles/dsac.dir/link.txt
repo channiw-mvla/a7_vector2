@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\dsac.dir/objects.a
+C:\msys64\mingw64\bin\ar.exe qc CMakeFiles\dsac.dir/objects.a @CMakeFiles\dsac.dir\objects1.rsp
+C:\msys64\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\dsac.dir/objects.a -Wl,--no-whole-archive -o dsac.exe -Wl,--out-implib,libdsac.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\dsac.dir\linkLibs.rsp
