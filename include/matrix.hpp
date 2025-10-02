@@ -27,8 +27,8 @@ public:
     Matrix(int r, int c){
         if (r < 0 || c < 0 )
             throw std::out_of_range("Negative dimensions");
-        int rows = r;
-        int cols = c;
+        rows = r;
+        cols = c;
         for (int i = 0; i < rows; i++){
             dsa::Vector<int> row;
             for (int j = 0; j < cols; j++)
@@ -47,7 +47,7 @@ public:
     Matrix operator+(Matrix& other) {
         if( this->cols != other.cols || this->rows != other.rows)
             throw std::out_of_range("dimensions must match");
-        Matrix result(this->rows,this->cols);
+        Matrix result = Matrix(this->rows,this->cols);
         for (int i = 0; i < this->rows; i++)
             for (int j = 0; j < this->cols; j++)
                 result(i,j) = (*this)(i, j) + other(i, j);
