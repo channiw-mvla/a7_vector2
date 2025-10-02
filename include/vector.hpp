@@ -194,12 +194,12 @@ public:
 
             //return this->vec->[this->ind];
             T& operator*() const {
-                return (*this->vec)[this->ind];
+                return this->vec[ind];
             }
 
             // return address of this->vec->[this->ind];
             T* operator->() const { 
-                return (*this->vec)[this->ind];
+                return this->vec[ind];
             }
 
             //pre increment overloaded without param
@@ -261,7 +261,7 @@ public:
             
             //return &vec->data[ind]
             const T* operator->() const { 
-                &vec->data[ind];
+                return &vec->data[ind];
             }
 
             //pre
@@ -274,7 +274,7 @@ public:
             //post
             //old=*this; ind++; return old
             const_iterator operator++(int){
-                iterator old = *this;
+                const_iterator old = *this;
                 ind++;
                 return old;
             }
@@ -289,7 +289,7 @@ public:
             //post
             //old=*this; ind--; return old
             const_iterator operator--(int){
-                iterator old = *this;
+                const_iterator old = *this;
                 ind--;
                 return old;
             }
