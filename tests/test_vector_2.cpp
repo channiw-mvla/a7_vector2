@@ -163,3 +163,39 @@ TEST_CASE("const -> operator"){
 
         REQUIRE(points.at(1).x == 3);
 }
+TEST_CASE("matrix constructor"){
+    dsa::Matrix a(1, 2);
+    REQUIRE(a(0,0)==0);
+    REQUIRE(a(0,1)==0);
+
+    REQUIRE_THROWS(dsa::Matrix(-1,2));
+    REQUIRE_THROWS(dsa::Matrix(1,-2));
+}
+TEST_CASE("adding to matrix"){
+    dsa::Matrix a(1, 2), b(1, 2); // declare matrix with default 0
+    // assign values as below or in loop
+    a(0,0)=1; a(0,1)=2;
+    b(0,0)=3; b(0,1)=4;
+
+    REQUIRE(a(0,0)==1);
+    REQUIRE(a(0,1)==2);
+    REQUIRE(b(0,0)==3);
+    REQUIRE(b(0,1)==4);
+}
+TEST_CASE("adding out of bounds"){
+    dsa::Matrix a(1, 2);
+    REQUIRE_THROWS(a(-1,0)=1); 
+    REQUIRE_THROWS(a(0,-1)=1); 
+    REQUIRE_THROWS(a(1,0)=2);
+    REQUIRE_THROWS(a(1,1)=3);
+}
+TEST_CASE("adding two matrices"){
+    dsa::Matrix a(1, 2), b(1, 2); // declare matrix with default 0
+    // assign values as below or in loop
+    a(0,0)=1; a(0,1)=2;
+    b(0,0)=3; b(0,1)=4;
+
+    dsa::Matrix c = a+b;
+    REQUIRE(c(0,0)==4); 
+    REQUIRE(c(0,1)==6); 
+}
